@@ -1,0 +1,32 @@
+name: Base
+
+inputs:
+  version: 
+    required: true
+  namespace:
+    required: true
+  service_name:
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: "Build & Test"
+      run: echo "${{ inputs.version }} | ${{ inputs.namespace }}"
+      shell: pwsh
+
+    - name: "Static Code Analysis"
+      run: echo "Running Static Code Analysis... on ${{ inputs.service_name }}"
+      shell: pwsh
+
+    - name: "Preview"
+      run: echo "Static Code Analysis"
+      shell: pwsh
+
+    - name: "Policies as Code"
+      run: echo "Running Policies as Code..."
+      shell: pwsh
+
+    - name: "Up"
+      run: echo "Running Apply..."
+      shell: pwsh

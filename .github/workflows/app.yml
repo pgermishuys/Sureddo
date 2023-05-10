@@ -1,0 +1,15 @@
+name: App
+
+on: [push, workflow_dispatch]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: App running base job
+    steps:
+      - uses: actions/checkout@v3
+      - id: base
+        uses: ./.github/template/base
+        with:
+          version: '0.0.1'
+          namespace: 'helloworld'
