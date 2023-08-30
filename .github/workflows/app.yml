@@ -13,3 +13,12 @@ jobs:
         with:
           version: '0.0.1'
           namespace: 'helloworld'
+  checkit:
+    environment: dev
+    runs-on: ubuntu-latest
+    name: App running base job
+    steps:
+      - uses: actions/checkout@v3
+      - id: sample
+        run: echo "${{ vars.ARM_SUBSCRIPTION_ID || secrets.ARM_SUBSCRIPTION_ID }}"
+        shell: pwsh
